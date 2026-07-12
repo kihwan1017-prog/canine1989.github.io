@@ -23,7 +23,17 @@
       <div class="site-header__inner">
         <!-- 실제 이름으로 교체 -->
         <a class="site-logo" href="#top">이름</a>
-        <nav class="site-nav" aria-label="주요 메뉴">
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+          data-nav-toggle
+        >
+          <span class="visually-hidden">메뉴</span>
+          <span aria-hidden="true"></span>
+        </button>
+        <nav id="site-nav" class="site-nav" aria-label="주요 메뉴" data-nav>
           <a href="#about">About</a>
           <a href="#work">Work</a>
           <a href="#philosophy">Philosophy</a>
@@ -56,6 +66,7 @@
           </p>
           <div class="hero__actions reveal">
             <a class="btn btn--primary" href="#contact">연락하기</a>
+            <a class="btn btn--text" href="#about">About</a>
             <a class="btn btn--text" href="#work">경력 보기</a>
           </div>
         </div>

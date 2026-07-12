@@ -40,6 +40,30 @@
     revealEls.forEach((el) => el.classList.add("is-visible"));
   }
 
+  // 모바일 메뉴 토글
+  const navToggle = document.querySelector("[data-nav-toggle]");
+  const nav = document.querySelector("[data-nav]");
+  if (navToggle && nav) {
+    const closeNav = () => {
+      nav.classList.remove("is-open");
+      navToggle.setAttribute("aria-expanded", "false");
+    };
+
+    navToggle.addEventListener("click", () => {
+      const willOpen = navToggle.getAttribute("aria-expanded") !== "true";
+      nav.classList.toggle("is-open", willOpen);
+      navToggle.setAttribute("aria-expanded", willOpen ? "true" : "false");
+    });
+
+    nav.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", closeNav);
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 640) closeNav();
+    });
+  }
+
   // FAQ 아코디언 — 한 번에 하나만 열림
   const faqRoot = document.querySelector("[data-faq]");
   if (!faqRoot) return;
