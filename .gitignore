@@ -1,0 +1,7 @@
+# Local tooling — not part of the published site
+.cursor/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log
